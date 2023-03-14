@@ -1,0 +1,162 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1>
+    MVC Html ve Tag Helpers Kullanımı
+</h1>
+
+<p>
+    Mvc ekranda html elementleri oluşturmak için bize bu helper metotlarıyla yardımcı olur.
+</p>
+
+@Html.ActionLink("Anasayfa", "Index", "Home")
+
+<hr />
+
+@Html.ActionLink("MVC01 Razor Syntax", "Index", "MVC01RazorSyntax")
+
+<br />
+
+<a href="/Home/Index/25">MVC Html ve Tag Helpers Kullanımı</a>
+<br />
+<a asp-action="Index" asp-controller="Home" asp-route-id="18" >MVC Html ve Tag Helpers Kullanımı</a>
+<br />
+<a asp-action="Index" asp-controller="Home">Anasayfa</a>
+<br />
+
+<hr />
+
+<h3>
+    Html Checkbox Oluşturma
+</h3>
+
+@Html.CheckBox("cbOnay") Kabul ediyorum
+
+<input id="cbOnay" name="cbOnay" type="checkbox" value="true">
+
+<hr />
+
+<h3>
+    Html Textbox Oluşturma
+</h3>
+
+@Html.TextBox("txtAd","test")
+
+<input type="text" value="Ekranda veri giriş alanı oluşturur." name="txtSoyad">
+
+<hr />
+
+<h3>
+    Html Hidden(Gizli Element) Oluşturma
+</h3>
+
+@Html.Hidden("GizliElement","Gizli Element ekranda görünmez kaynak kodunda görünür.")
+
+<hr />
+
+<h3>
+    Html Label Oluşturma
+</h3>
+
+@Html.Label("lblAd", "Html Label elementi ile 2.texti gönderebiliriz.")
+
+<hr />
+
+<h3>
+    Html TextArea (çok satırlı veri giriş kutusu) Oluşturma
+</h3>
+
+@Html.TextArea("txtAdres","Html TextArea (çok satırlı veri giriş kutusu) Oluşturma")
+
+<hr />
+
+<h3>
+    Html Password Oluşturma
+</h3>
+
+@Html.Password("txtSifre")
+
+<hr />
+
+<h3>
+    Html Helpers ile Form Oluşturma
+</h3>
+
+@using (Html.BeginForm())
+{
+    <h5>
+        Kullanıcı Adınız
+    </h5>
+    @Html.Editor("txtKullaniciAdi")
+    <h5>
+        Şifreniz
+    </h5>
+    @Html.Password("txtSifre") 
+    <br/>
+    <input type="submit" value="Giriş" />
+}
+<form action="/MVC02HtmlAndTagHelpers" method="post">
+    <h5>
+        Kullanıcı Adınız
+    </h5>
+    <input class="text-box single-line" id="txtKullaniciAdi" name="txtKullaniciAdi" type="text" value="">    <h5>
+        Şifreniz
+    </h5>
+    <input id="txtSifre" name="txtSifre" type="password">
+    <br>
+    <input type="submit" value="Giriş">
+</form>
+
+<hr />
+
+<h3>
+    Mvc Tag Helpers Kullanarak Form Oluşturma
+</h3>
+<form asp-action="Index" asp-controller="MVC02HtmlAndTagHelpers" method="get">
+    <input id="area" name="ara" type="text" placeholder="Aranacak Kelime..." />
+</form>
+
+<hr />
+
+<h3>
+    Listbox ve Dropdownlist Elementi Kullanımı
+</h3>
+
+@{
+    var kategoriler = new SelectListItem[]
+            {
+                new SelectListItem(){Text="Bilgisayar"},
+                new SelectListItem(){Text="Elektronik"},
+                new SelectListItem(){Text="Telefon"}
+            };
+    var htmlRawOrnek = "<b>Html Raw ile Ekrana Html İçerik Yazdırma</b>";
+}
+<h5>
+    Listbox
+</h5>
+@Html.ListBox("lbListe", kategoriler)
+<h5>
+    DropDownList
+</h5>
+@Html.DropDownList("lsListe", kategoriler)
+
+<hr />
+
+<h3>
+    RadioButton Elementi Kullanımı
+</h3>
+@Html.RadioButton("rbOnay","Onaylıyorum") Sözleşmeyi Onaylıyorum 
+
+<hr />
+
+<h3>
+    Html Raw ile Ekrana Html İçerik Yazdırma
+</h3>
+
+@htmlRawOrnek
+<br />
+@Html.Raw(htmlRawOrnek)
+
