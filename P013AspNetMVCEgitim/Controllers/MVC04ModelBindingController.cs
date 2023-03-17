@@ -37,13 +37,26 @@ namespace P013AspNetMVCEgitim.Controllers
 
         public IActionResult UyeSayfasi()
         {
+            Kullanici kullanici = new Kullanici();
+            kullanici.KullaniciAdi = "Admin";
+            kullanici.Ad = "Utku";
+            kullanici.Soyad = "Cicek";
+            kullanici.Sifre = "1234";
+            kullanici.EMail = "Utku@Cicek.co";
+
             Adres adres = new()
             {
                 Sehir = "Bursa",
                 Ilce = "Mudanya",
                 AcikAdres = "Güzelyalı ..."
             };
-            return View(adres);
+
+            var model = new UyeSayfasiViewModel()
+            {
+                Kullanici = kullanici,
+                Adres = adres
+            };
+            return View(model);
         }
     }
 }
