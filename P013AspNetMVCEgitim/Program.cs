@@ -1,7 +1,11 @@
+using P013AspNetMVCEgitim.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<UyeContext>(); // Bu satýrý sanal veritabaný kullanabilmek için ekledik.
 
 var app = builder.Build();
 
@@ -23,6 +27,6 @@ app.UseAuthorization();  // uygulama kullanýcý yetkilendirme(admin, user v.b) si
 
 app.MapControllerRoute( // uygulamanýn kullanacaðý routing yönlendirme ayarý
     name: "default", // route adý
-    pattern: "{controller=Home}/{action=Index}/{id?}"); // ewðer adres çubuðundan uygulamaya bir controller adý ve action adý gönderilmezse varsayýlan olarak Home controller ý ve içindeki Index isimli action ý çalýþtýrýrsýn. id deðeri ise ? ile parametrik yani isteðe baðlý belirtilmiþ.
+    pattern: "{controller=Home}/{action=Index}/{id?}"); // eðer adres çubuðundan uygulamaya bir controller adý ve action adý gönderilmezse varsayýlan olarak Home controller ý ve içindeki Index isimli action ý çalýþtýrýrsýn. id deðeri ise ? ile parametrik yani isteðe baðlý belirtilmiþ.
 
 app.Run(); // uygulamayý yukarýdaki ayarlarý kullanarak çalýþtýr.

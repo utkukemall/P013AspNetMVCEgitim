@@ -13,10 +13,10 @@ namespace P013AspNetMVCEgitim.Models
         public string? Telefon { get; set; }
         public string? TcKimlikNo { get; set; }
         public DateTime? DogumTarihi { get; set; }
-        public string KullaniciAdi { get; set; }
-        public string Sifre { get; set; }
-        public string SifreTekrar { get; set; }
+        public string? KullaniciAdi { get; set; }
+        public string? Sifre { get; set; }
+        public string? SifreTekrar { get; set; }
 
-        //String'in yanına soru işareti (?) eklediğimiz zaman zorunlu halden çıkıyor.
+        // String'in yanına soru işareti (?) eklediğimiz zaman zorunlu halden çıkıyor.
     }
 }

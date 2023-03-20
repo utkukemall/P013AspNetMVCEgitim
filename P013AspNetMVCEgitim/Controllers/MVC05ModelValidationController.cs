@@ -20,6 +20,15 @@ namespace P013AspNetMVCEgitim.Controllers
         [HttpPost]
         public IActionResult YeniUye(Uye uye)
         {
+            if (ModelState.IsValid) // eğer parantez içerisinde gönderilen üye nesnesi validasyon kurallarına uygunsa 
+            {
+                // Bu bloktaki kodları çalıştır. Mesela gönderilen üye nesnesini veritabanına ekle.
+                
+            }
+            else
+            {
+                ModelState.AddModelError("", "Lütfen Zorunlu Alanları Doldurunuz!"); 
+            }
             return View();
         }
     }
