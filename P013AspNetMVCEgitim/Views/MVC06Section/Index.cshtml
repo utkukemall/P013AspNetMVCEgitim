@@ -15,7 +15,23 @@
 </section>
 
 @section Scripts{
-    <script>
+   @* <script>
         alert("Section Kullanımı ile alert")
+    </script>*@
+    <script>
+        console.log("Section Kullanımı")
     </script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+}
+
+@section OzelIcerik{
+    <section class="alert alert-info">
+        Sayfa içinde bir bölüm
+    </section>
+}
+
+@section OzelCss{
+    <style>
+        body {background-color: yellow; color: red; }
+    </style>
 }

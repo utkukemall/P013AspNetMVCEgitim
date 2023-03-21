@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/P013AspNetMVCEgitim.styles.css" asp-append-version="true" />
+    @await RenderSectionAsync("OzelCss", required: false)
 </head>
 <body>
     <header>
@@ -26,10 +27,10 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="MVC01RazorSyntax" asp-action="Index">Razor Syntax</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="MVC02HtmlAndTagHelpers" asp-action="Index">HtmlAndTagHelpers</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="MVC02HtmlAndTagHelpers" asp-action="Index">Html and Tag Helpers</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="MVC03DataTransfer" asp-action="Index">DataTransfer</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="MVC03DataTransfer" asp-action="Index">Data Transfer</a>
                         </li>
                         </li>
                         <li class="nav-item">
@@ -56,16 +57,12 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="MVC06Section" asp-action="Index">Section</a>
                         </li>
 
-                        <li class="dropdown">
-                            <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Diğer Konular
-                            </a>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="MVC07Partial" asp-action="Index">Partial</a>
+                        </li>
 
-                            <ul class="dropdown-menu">                    
-                                <li><a class="dropdown-item" href="/MVC06Section">MVC06 Section</a></li>
-                                <li><a class="dropdown-item" href="/MVC06Section/UyeListesi">2</a></li>
-                                <li><a class="dropdown-item" href="/MVC06Section/YeniUye">3</a></li>                              
-                            </ul>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="MVC08ViewResults" asp-action="Index">View Results</a>
                         </li>
 
                         <li class="nav-item">
@@ -85,6 +82,7 @@
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2023 - P013AspNetMVCEgitim - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            @await RenderSectionAsync("OzelIcerik", required: false)
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
