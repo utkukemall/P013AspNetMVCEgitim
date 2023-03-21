@@ -15,6 +15,8 @@ namespace P013AspNetMVCEgitim.Controllers
             var model = context.Uyes.ToList(); // Context içinde yer alan Uyes tablosundaki verileri listele ve model isimli değişkene aktar.
             return View(model); // View sayfasına model bu şekilde gönderiliyor. 
         }
+
+
         public IActionResult YeniUye()
         {
             return View();
@@ -35,5 +37,50 @@ namespace P013AspNetMVCEgitim.Controllers
             }
             return View();
         }
+
+
+        public IActionResult UyeDuzenle(int id)
+        {
+            var kayit = context.Uyes.Find(id); // adres çubuğundaki route üzerinden gönderilen id ile eşleşen kaydı bul.
+            return View(kayit);
+        }
+        [HttpPost]
+        public IActionResult UyeDuzenle(Uye uye)
+        {
+            if (ModelState.IsValid) // eğer parantez içerisinde gönderilen uye nesnesi validasyon kurallarına uygunsa 
+            {
+                context.Uyes.Update(uye); // View'dan gönderilen uye nesnesini güncelle
+                context.SaveChanges(); // üst satırdaki üye düzenleme işlemini kaydet.
+                return RedirectToAction("UyeListesi");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Lütfen Zorunlu Alanları Doldurunuz!");
+            }
+            return View();
+        }
+
+
+        public IActionResult UyeSil(int id)
+        {
+            var kayit = context.Uyes.Find(id); // adres çubuğundaki route üzerinden gönderilen id ile eşleşen kaydı bul.
+            return View(kayit);
+        }
+        [HttpPost]
+        public IActionResult UyeSil(Uye uye)
+        {
+            try
+            {
+                context.Uyes.Remove(uye);
+                context.SaveChanges(); // üst satırdaki silme işlemini kaydet.
+                return RedirectToAction("UyeListesi");
+            }
+            catch (Exception hata)
+            {
+                ModelState.AddModelError("", "Hata Oluştu!" + hata.Message);
+            }
+            return View();
+        }
+
     }
 }
