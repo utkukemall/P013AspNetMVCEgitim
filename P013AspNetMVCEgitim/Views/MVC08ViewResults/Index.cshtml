@@ -40,3 +40,29 @@
 </h4>
 
 <a asp-action="RouteYonlendir">PartialView Result</a>
+
+<hr />
+
+<a asp-action="KategorileriGetirPartial">PartialView Result</a>
+
+<partial name="_KategorilerPartial" />
+
+<input type="button" value="Kategorileri Getir clas" class="btn btn-warning" id="btnKategorileriGetirPartial" />
+
+<br />
+
+<div id="Kategoriler"></div>
+@section scripts{
+    <script>
+        function KategorileriGetir(){
+            $.ajax({
+                url: "@Url.Action("KategorileriGetirPartial","MVC08ViewResults")",
+                type="GET",
+                dataType="html",
+                success: function(){
+
+                }
+            });
+        }
+    </script>
+}

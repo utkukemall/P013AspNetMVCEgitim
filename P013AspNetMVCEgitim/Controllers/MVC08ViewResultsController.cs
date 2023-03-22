@@ -22,9 +22,14 @@ namespace P013AspNetMVCEgitim.Controllers
             return RedirectToAction("Index","Home"); // metot çalıştığında farklı bir controller dakii actiona bu şekilde yönlendirebiliriz.
         }
 
-        public IActionResult RouteYonlendir()
+        public RedirectToRouteResult RouteYonlendir() // IActionResult da yapsak olurdu
         {
             return RedirectToRoute("Default", new { controller="Home", action="Index", id=18}); // Metot çalıştığı zaman route sistemiyle yönlendirme yapmamızı sağlar.
+        }
+        public PartialViewResult KategorileriGetirPartial() // IActionResult da yapsak olurdu
+        {
+            return PartialView("_KategorilerPartial");
+
         }
     }
 }
