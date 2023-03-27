@@ -9,7 +9,7 @@ namespace P013AspNetMVCEgitim.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Index(IFormFile? Image) // ön yüzdeki file elementinin ismini buradaki IFormFile parametresine veriyoruz!
+        public IActionResult Index(IFormFile? Image) // ön yüzdeki file elementinin ismini buradaki IFormFile parametresine veriyoruz! I Form File? a ? koymamızın sebebi post yapılırken kullanıcı resim yüklemeyebilir, sadece inputlardan veri göndermek isteyebilir.
         {
             if (Image is not null)
             {
