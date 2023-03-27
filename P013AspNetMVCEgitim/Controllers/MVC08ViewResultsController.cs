@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using P013AspNetMVCEgitim.Models;
 
 namespace P013AspNetMVCEgitim.Controllers
 {
@@ -29,7 +30,38 @@ namespace P013AspNetMVCEgitim.Controllers
         public PartialViewResult KategorileriGetirPartial() // IActionResult da yapsak olurdu
         {
             return PartialView("_KategorilerPartial");
-
+        }
+        public IActionResult XmlContentResult()
+        {
+            var xml = @"
+                    <Kullanicilar>
+                        <Kullanici>
+                            <Adi>
+                                Murat
+                            </Adi>
+                            <Soyadi>
+                                Yılmaz
+                            </Soyadi>
+                        </Kullanici>
+                        <Kullanici>
+                            <Adi>
+                                Utku
+                            </Adi>
+                            <Soyadi>
+                                Çiçek
+                            </Soyadi>
+                        </Kullanici>
+                    </Kullanicilar>
+            ";
+            return Content(xml,"application/xml"); // geriye xml içeriğini döndürdük
+        }
+        public IActionResult JsonDondur()
+        {
+            var kullanici = new Kullanici()
+            {
+                Ad = "Utku", Soyad="Çiçek", KullaniciAdi="utkukemall"
+            };
+            return Json(kullanici);
         }
     }
 }
