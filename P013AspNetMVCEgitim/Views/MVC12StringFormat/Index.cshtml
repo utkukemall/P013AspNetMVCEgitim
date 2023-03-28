@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewData["Title"] = "MVC12 String Format";
+    DateTime tarih = DateTime.Now;
+}
+
+<h1>MVC12 String Format</h1>
+
+<p>
+    Ekranda gösterilen verileri formatlamak için kullanırız.
+</p>
+
+<h2>
+    Tarih Formatlama
+</h2>
+
+<h4>
+    Tarih : @tarih
+</h4>
+
+<hr />
+
+<h5>
+    Saat ve Dakika (0:t) : @String.Format("{0:t}", tarih)
+</h5>
+
+<hr />
+
+<h5>
+    Gün Ay Yıl (0:d) : @String.Format("{0:d}", tarih)
+</h5>
+
+<hr />
+
+<h5>
+    Yıl (0:yyyy) : @String.Format("{0:yyyy}", tarih)
+</h5>
+
+<hr />
+<hr />
+<hr />
+
+<h2>
+    Sayı Formatlama
+</h2>
+
+<h5>
+    TL Etiketi (₺) (0:C) : @String.Format("{0:C}", 33.99)
+</h5>
+
+<hr />
+
+<h5>
+    Sayıyı Başına 0 Koyarak 3 Basamaklı Sayıya Tamamlama (0:D3) : @String.Format("{0:D3}", 39)
+</h5>
+
+<hr />
+
+<h5>
+    Sayıyı Başına 0 Koyarak 5 Basamaklı Sayıya Tamamlama (0:D5) : @String.Format("{0:D5}", 39)
+</h5>
+
+<hr />
+
+<h5>
+    Virgülden Sonrasını 1 Basamaklı Hale Getirme (0:F1) : @String.Format("{0:F1}", 39.39)
+</h5>
+
+<hr />
+
+<h5>
+    Virgülden Sonrasını 2 Basamaklı Hale Getirme (0:F2) : @String.Format("{0:F2}", 39.39)
+</h5>
+
+<hr />
+
+<h5>
+    Virgülden Sonrasını 3 Basamaklı Hale Getirme (0:F3) : @String.Format("{0:F3}", 39.39)
+</h5>

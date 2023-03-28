@@ -7,6 +7,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<UyeContext>(); // Bu satýrý sanal veritabaný kullanabilmek için ekledik.
 
+builder.Services.AddSession(); // uygulamada session kullanabilmek için bu satýrý ekliyoruz.
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -21,6 +23,8 @@ app.UseHttpsRedirection(); // uygulama http isteklerini hettps ile güvenli baðla
 app.UseStaticFiles(); // uygulama statik dosyalarý(wwwroot klasöründekiler) desteklesin
 
 app.UseRouting(); // uygulama routing ile yönlendirmeyi kullansýn.
+
+app.UseSession(); // uygulamada session kullanabilmek için bu satýrý ekliyoruz.
 
 app.UseAuthentication(); // uygulama kullanýcý giriþ sistemini aktif etsin
 app.UseAuthorization();  // uygulama kullanýcý yetkilendirme(admin, user v.b) sistemini aktif etsin.
